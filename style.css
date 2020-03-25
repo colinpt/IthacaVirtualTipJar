@@ -2,3 +2,13 @@
     background-image: url('assets/images/commons.jpg') !important;
     background-size: cover !important;
 }
+
+.footing{
+    font-size: 18pt;
+    line-height: 1.6;
+}
+
+.disclaimer{
+    font-size: 10pt;
+    color: gray;
+}
