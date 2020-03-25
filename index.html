@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ithaca's Virtual Tip Jar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+    </head>
+    <body>
+       
+        <h1 class="ui center aligned icon header topmargin">
+            <i class="circular money icon"></i>
+            Ithaca virtual tip jar.
+         </h1>
+         <h3 class="ui center aligned header topmargin">A place to support Ithaca's service workers.</h3>
+         <div class="ui container center aligned segment">
+            
+            <button class="ui centered large blue button" onclick="getNewWorker()">New Ithacan.</button>
+            <div class="ui horizontal divider">
+               Results
+            </div>
+            <table class="ui celled table">
+                <thead>
+                  <tr><th>Name</th>
+                  <th>Place of work</th>
+                  <th>Payment Type</th>
+                  <th>Payment Address</th>
+                </tr></thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Name" id="name"></td>
+                    <td data-label="Place of work" id="workplace"></td>
+                    <td data-label="Payment type" id="paymentType"></td>
+                    <td data-label="Payment address" id="paymentAddress"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <a class="ui center aligned link topmargin" href="https://docs.google.com/spreadsheets/d/1vOnpxxoHyvnnA4BYlD-CN8PnK5FXjxH_3hOnPiAxIj8/edit#gid=285178493"> Made with data from this spreadsheet.</a>
+              <span><br>Are you an Ithacan service worker?</span>
+              <a class="ui center aligned link topmargin" href="https://docs.google.com/forms/d/e/1FAIpQLSdIMpfNSm2dmty4L0DUtEUTcRFeERiqYiAUlPjITti1R3jiaw/viewform"> Add your name here!</a>
+         </div>
+         
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+        <script src="app.js" async defer></script>
+    </body>
+</html>
