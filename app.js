@@ -6,14 +6,16 @@ var workers = populateWorkers();
 function populateWorkers(){
     var workers = [];
 
-    $.get('https://spreadsheets.google.com/feeds/cells/1xTrVxp70sYG3BmYXPAyXQbwW1rfmc7ZJlFitJfzm3xQ/o4psdd3/public/basic?alt=json', function(data) {
+    $.get('https://spreadsheets.google.com/feeds/cells/1V3JRQh7BvAqzrzG9BVMXyKLlg7P-G38S8MX3_Xpkegc/o4psdd3/public/basic?alt=json', function(data) {
        //console.log(data.feed.entry);
        for (var i = 6; i < data.feed.entry.length; i += 5){
             var name = data.feed.entry[i].content.$t;
             var workPlace = data.feed.entry[i + 1].content.$t;
             var paymentType = data.feed.entry[i + 2].content.$t;
             var paymentAddress = data.feed.entry[i + 3].content.$t;
-            workers.push(new Worker(name, workPlace, paymentType, paymentAddress));
+            var worker = new Worker(name, workPlace, paymentType, paymentAddress);
+            workers.push(worker);
+            //console.log(worker);
        }
     });
     return workers;
