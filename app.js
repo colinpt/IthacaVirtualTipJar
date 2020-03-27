@@ -24,7 +24,6 @@ function populateWorkers(array){
             previousAddress = paymentAddress;
        }
     });
-    checkData(workersArray);
     
     return workersArray;
 }
