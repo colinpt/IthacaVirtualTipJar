@@ -9,7 +9,6 @@ function populateWorkers(array){
     var workersArray = [];
 
     $.get('https://spreadsheets.google.com/feeds/cells/1vOnpxxoHyvnnA4BYlD-CN8PnK5FXjxH_3hOnPiAxIj8/o4psdd3/public/basic?alt=json', function(data) {
-       //console.log(data.feed.entry);
        var previousName = "";
        var previousAddress = "";
        for (var i = 6; i < data.feed.entry.length; i += 5){
@@ -36,18 +35,11 @@ function getNewWorker(){
     document.getElementById("workplace").innerHTML = worker.workPlace;
     document.getElementById("paymentType").innerHTML = worker.paymentType;
     document.getElementById("paymentAddress").innerHTML = worker.paymentAddress;
-    checkData(workers);
     return worker;
 }
 
 function getRandomObjectFromArray(array){
     return array[Math.round(Math.random() * array.length)];
-}
-
-function checkData(array){
-    for (let i = 0; i < array.length; i++){
-        console.log(workers[i]);
-    }
 }
 
 class Worker{
@@ -56,12 +48,5 @@ class Worker{
         this.workPlace = workPlace;
         this.paymentType = paymentType;
         this.paymentAddress = paymentAddress;
-    }
-
-    equals(that){
-        return this.name == that.name               &&
-               this.workPlace == that.workPlace     &&
-               this.paymentType == that.paymentType &&
-               this.paymentAddress == that.paymentAddress;
     }
 };
