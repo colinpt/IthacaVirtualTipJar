@@ -19,10 +19,19 @@ function populateWorkers(array){
             var worker = new Worker(name, workPlace, paymentType, paymentAddress);
             // This is a naive way of preventing duplicates, as something about the data entry makes a lot of the duplicates appear one after another.
             // Obviously there could still be duplicates spaced apart. But that has yet to be an issue.
-            if ((previousName.trim() !== name.trim()) && (previousAddress.trim() !== paymentAddress.trim())) workersArray.push(worker);
+            if (safeInput(name) && safeInput(workPlace)             && 
+                safeInput(paymentType) && safeInput(paymentAddress) &&
+               (previousName.trim() !== name.trim())                && 
+               (previousAddress.trim() !== paymentAddress.trim())) {
+                    workersArray.push(worker);
+               }
             previousName = name;
             previousAddress = paymentAddress;
        }
+    // FOR DEBUGGING
+    //    for (var i = 0; i < workers.length; i++){
+    //        console.log(workers[i]);
+    //    }
     });
     
     return workersArray;
@@ -35,6 +44,18 @@ function getNewWorker(){
     document.getElementById("paymentType").innerHTML = worker.paymentType;
     document.getElementById("paymentAddress").innerHTML = worker.paymentAddress;
     return worker;
+}
+
+function safeInput(string){
+    let badChars = ['<','>','(',')','=','+']
+    let chars = badChars.length;
+    let len = string.length;
+    for (var i = 0; i < len; i++){
+        for(var j = 0; j < chars; j++){
+            if (string[i] === badChars[j]) return false;
+        }
+    }
+    return true;
 }
 
 function getRandomObjectFromArray(array){
